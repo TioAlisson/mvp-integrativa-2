@@ -1,41 +1,53 @@
 import IntegrationCard from "./IntegrationCard";
+import LogoSupabase from "../../../../public/logo-supabase.png";
 import LogoNotion from "../../../../public/logo-notion.png";
 import LogoSlack from "../../../../public/logo-slack.png";
 import LogoTrello from "../../../../public/logo-trello.png";
 
 export default function IntegrationCardInfo() {
-  const cards = [
+ const cards = [
     {
-      logo: LogoNotion,
-      companyName: "Notion",
-      jobTitle: "Senior UI/UX Designer",
-      tags: ["Part-Time"],
-      level: "Senior Level",
-      price: "$Free",
+      logo: LogoSupabase,
+      companyName: "Supabase",
+      jobTitle: "Banco de dados principal.",
+      tags: ["Database", "Core"], 
+      level: "Conectado", 
+      price: "Incluso",
       isConnected: true,
       applyUrl: "#",
     },
     {
+      logo: LogoNotion,
+      companyName: "Notion",
+      jobTitle: "Importe e exporte documentações.", 
+      tags: ["Produtividade", "Docs"],
+      level: "Planejado", 
+      price: "Plano Pro", 
+      isConnected: false,
+      applyUrl: "#", 
+    },
+    {
       logo: LogoSlack,
       companyName: "Slack",
-      jobTitle: "Frontend Developer",
-      tags: ["Full-Time"],
-      level: "Mid Level",
-      price: "$29",
+      jobTitle: "Receba notificações de processos.", 
+      tags: ["Comunicação", "Equipe"],
+      level: "Planejado",
+      price: "Plano Pro", 
       isConnected: false,
       applyUrl: "#",
     },
     {
       logo: LogoTrello,
-      companyName: "Figma",
-      jobTitle: "Product Designer",
-      tags: ["Remote"],
-      level: "Senior Level",
-      price: "$99",
+      companyName: "Trello",
+      jobTitle: "Sincronize seus quadros e cartões.",
+      tags: ["Gestão", "Projetos"], 
+      level: "Planejado", 
+      price: "Plano Pro", 
       isConnected: false,
-      applyUrl: "#",
-    }
+      applyUrl: "#", 
+    },
   ];
+
 
   return (
     <div className="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-6 place-items-center">

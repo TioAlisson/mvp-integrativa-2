@@ -17,7 +17,7 @@ export default function CardDash({
 }: CardDashProps) {
   return (
     <div
-      className={`shadow-[1px_1px_10px_rgba(0,0,0,0.15)] rounded-md px-8 py-7 h-full flex flex-col justify-between duration-200`}
+      className={`shadow-[1px_1px_10px_rgba(0,0,0,0.15)] rounded-2xl px-8 py-7 h-full flex flex-col justify-between duration-200`}
     >
       <div className="flex justify-between">
         <div>
@@ -27,7 +27,7 @@ export default function CardDash({
       </div>
 
       <div className="flex items-center justify-between mt-2">
-        <span className="text-green-500 text-sm font-medium">{variacao}</span>
+        <span className="text-green-500 text-sm font-medium bg-green-100 px-4 py-px rounded-2xl">{variacao}</span>
         <p className="text-gray-500 text-xs">{periodo}</p>
       </div>
     </div>

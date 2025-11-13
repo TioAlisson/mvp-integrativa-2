@@ -23,6 +23,7 @@ const statusOptions = [
   { id: 'Ativo', name: 'Ativo' },
   { id: 'Em Análise', name: 'Em Análise' },
   { id: 'Obsoleto', name: 'Obsoleto' },
+  { id: 'Sugestão', name: 'Sugestão' },
 ];
 
 export default function NovoProcessoModal({ 

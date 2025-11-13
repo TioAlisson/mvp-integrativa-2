@@ -33,10 +33,10 @@ export default function IntegrationCard({
         )}
       </div>
 
-      <div className="mt-8 mb-6">
+      <div className="mt-8">
         <h2 className="font-semibold">{companyName}</h2>
-        <h3 className="text-lg font-semibold">{jobTitle}</h3>
-        <div className="flex gap-2 mt-2 flex-wrap mb-16">
+        <h3 className="text-lg font-semibold min-h-14">{jobTitle}</h3>
+        <div className="flex gap-2 flex-wrap mb-16 min-h-14 items-center">
           {tags.map((tag, index) => (
             <span
               key={index}
@@ -55,7 +55,7 @@ export default function IntegrationCard({
         <h4 className="font-semibold text-xl">{price}</h4>
         <Link
           href={applyUrl}
-          className="bg-zinc-900 text-white/90 font-semibold px-4 py-2 rounded-md opacity-90"
+          className="bg-zinc-900 text-white/90 font-semibold px-4 py-2 rounded-md opacity-90 cursor-pointer"
         >
           Apply Now
         </Link>

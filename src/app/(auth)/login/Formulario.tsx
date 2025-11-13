@@ -67,8 +67,8 @@ export default function Formulario() {
             className={` ${styleOverlay} ${isSignUp ? "opacity-100" : "opacity-0"}`}
           >
             <OverlayContent
-              title="Welcome Back!"
-              description="To keep connected with us please login with your personal info"
+              title="Bem vindo de volta!"
+              description="Que bom te ver de novo! Faça login com seus dados para continuar conectado com a gente."
               buttonText="Sign In"
               onClick={() => setIsSignUp(false)}
             />
@@ -85,9 +85,9 @@ const SignInForm = () => (
     className="w-[80%] lg:w-[60%] mx-auto text-center relative"
     onSubmit={(e) => e.preventDefault()}
   >
-    <h1 className="text-5xl font-semibold mb-5">Sign In</h1>
+    <h1 className="text-5xl font-semibold mb-5">Criar conta</h1>
     <SocialIcons />
-    <p className="text-zinc-500 my-4">Use sua conta para acessar o painel</p>
+    <p className="text-zinc-500 my-4">Preencha seus dados para criar sua conta e acessar o painel</p>
     <div className="w-full flex flex-col items-center gap-4">
       <input
         type="text"
@@ -99,7 +99,7 @@ const SignInForm = () => (
         placeholder="Password"
         className="block w-full border border-slate-300/70 rounded-md bg-[#EDEDED] px-4 py-2"
       />
-      <Link href="#" className="text-zinc-500"> Forgot Your Password?</Link>
+      {/* <Link href="#" className="text-zinc-500"> Forgot Your Password?</Link> */}
       <Link href="#" className="bg-secondary-500 text-white px-12 py-2 rounded-md text-center w-full uppercase font-semibold">
         Sign Up
       </Link>
@@ -113,9 +113,9 @@ const SignUpForm = () => (
     className="w-[80%] lg:w-[60%] mx-auto text-center"
     onSubmit={(e) => e.preventDefault()}
   >
-    <h1 className="text-5xl font-semibold mb-5">Create Account</h1>
+    <h1 className="text-5xl font-semibold mb-5">Fazer Login</h1>
     <SocialIcons />
-    <p className="text-zinc-500 my-4">Use seu email para registrar</p>
+    <p className="text-zinc-500 my-4">Use o nome da sua empresa/email para entrar</p>
     <div className="w-full flex flex-col items-center gap-4">
       <input
         type="text"

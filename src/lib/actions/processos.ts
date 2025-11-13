@@ -26,6 +26,26 @@ type ActionResult = {
 }
 
 
+// Count status
+export async function getProcessosStatusCount() {
+  const supabase = await createClient();
+
+  const statuses = ['Ativo', 'Em Análise', 'Obsoleto', 'Sugestão'];
+  const results: Record<string, number> = {};
+
+  for (const status of statuses) {
+    const { count } = await supabase
+      .from('processos')
+      .select('*', { count: 'exact', head: true })
+      .eq('status', status);
+
+    results[status] = count || 0;
+  }
+
+  return results;
+}
+
+
  // CREATE
 export async function createProcesso(input: NovoProcessoInput): Promise<ActionResult> {
   console.log('🚀 CREATE - Iniciando criação de processo:', input.titulo)

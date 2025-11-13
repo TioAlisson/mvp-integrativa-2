@@ -22,7 +22,7 @@ export default function ProcessCard({
 }: ProcessCardProps) {
   const router = useRouter();
   const [isDeleting, setIsDeleting] = useState(false);
-  
+
   const {
     titulo,
     descricao,
@@ -45,10 +45,10 @@ export default function ProcessCard({
     if (!confirmed) return;
 
     setIsDeleting(true);
-    
+
     try {
       const result = await deleteProcesso(processo.id);
-      
+
       if (result.success) {
         router.refresh();
       } else {
@@ -62,48 +62,57 @@ export default function ProcessCard({
     }
   };
 
+  const statusColors = {
+    'Ativo': 'bg-green-100 text-green-800',
+    'Em Análise': 'bg-yellow-100 text-yellow-800',
+    'Obsoleto': 'bg-red-100 text-red-800',
+    'Sugestão': 'bg-blue-100 text-blue-800',
+  };
+
+
   return (
-    <div className="flex flex-col shadow-[1px_1px_10px_rgba(0,0,0,0.15)] rounded-xl">
+    <div className="flex flex-col shadow-[1px_1px_10px_rgba(0,0,0,0.15)] rounded-xl bg-white">
       <div className="p-6 rounded-b-xl flex flex-col grow">
         <div className="grow">
-          <div className="flex justify-between flex-wrap gap-2 mb-3">
+          <div className="flex items-center justify-between flex-wrap mb-3">
             <div className='flex gap-4'>
               <span className="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-xs font-semibold">
                 {subCategoria}
               </span>
-              <span className="bg-cyan-100 text-cyan-800 px-3 py-1 rounded-full text-xs font-semibold">
-                {status || 'Sem Status'}
+
+              <span
+                className={`${statusColors[status] || 'bg-gray-100 text-gray-800'} px-3 py-1 rounded-full text-xs font-semibold`}
+              >
+                {status}
               </span>
             </div>
-            
-            <div className="flex items-center gap-2">
+
+            <div className="flex items-center gap-4">
               <button
                 onClick={() => onEdit(processo)}
-                className="p-2 text-blue-600 hover:bg-blue-50 rounded-lg transition-colors"
+                className="text-blue-600 rounded-lg transition-colors cursor-pointer"
                 title="Editar processo"
               >
-                <Pencil size={16} />
+                <Pencil size={14} />
               </button>
-              
+
               <button
                 onClick={handleDelete}
                 disabled={isDeleting}
-                className={`p-2 text-red-600 hover:bg-red-50 rounded-lg transition-colors ${
-                  isDeleting ? 'opacity-50 cursor-not-allowed' : ''
-                }`}
+                className={`p-2 text-red-600 rounded-lg transition-colors cursor-pointer ${isDeleting ? 'opacity-50 cursor-not-allowed' : ''
+                  }`}
                 title="Excluir processo"
               >
-                <Trash2 size={16} />
+                <Trash2 size={14} />
               </button>
-              
+
               <button
                 onClick={onToggleExpand}
-                className={`transition-transform duration-300 ease-in-out cursor-pointer ${
-                  isExpanded ? 'rotate-45' : 'rotate-0'
-                }`}
+                className={`transition-transform duration-300 ease-in-out cursor-pointer ${isExpanded ? 'rotate-45' : 'rotate-0'
+                  }`}
                 aria-label={isExpanded ? 'Recolher detalhes' : 'Expandir detalhes'}
               >
-                <Plus width={14} />
+                <Plus width={14} height={14} />
               </button>
             </div>
           </div>
@@ -113,7 +122,7 @@ export default function ProcessCard({
           </h1>
 
           <h2
-            className={`mb-4 text-gray-700 overflow-hidden transition-all duration-1000 ease-in-out 
+            className={`mb-4 text-gray-700 overflow-hidden transition-all duration-1000 ease-in-out min-h-12
             ${!isExpanded ? 'max-h-12 opacity-100 line-clamp-2' : 'max-h-[600px] opacity-100 pt-1'}`}
           >
             {descricao}
@@ -130,9 +139,8 @@ export default function ProcessCard({
             )}
 
             <div
-              className={`transition-all duration-700 ease-in-out overflow-hidden ${
-                isExpanded ? 'max-h-[600px] opacity-100 pt-1' : 'max-h-0 opacity-0'
-              }`}
+              className={`transition-all duration-700 ease-in-out overflow-hidden ${isExpanded ? 'max-h-[600px] opacity-100 pt-1' : 'max-h-0 opacity-0'
+                }`}
             >
               {passoAPasso.slice(1).map((passo, index) => (
                 <span key={index} className="block my-2">
@@ -154,9 +162,8 @@ export default function ProcessCard({
               Ferramentas:
             </h4>
             <p
-              className={`text-sm text-gray-600 ${
-                !isExpanded ? 'line-clamp-2 min-h-10 mt-1' : 'whitespace-normal'
-              }`}
+              className={`text-sm text-gray-600 ${!isExpanded ? 'line-clamp-2 min-h-10 mt-1' : 'whitespace-normal'
+                }`}
             >
               {ferramentasUsadas.join(', ')}
             </p>

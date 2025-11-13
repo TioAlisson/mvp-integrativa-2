@@ -21,7 +21,7 @@ export default function MainLayout({
         <>
             {!isLargeScreen && (
                 <>
-                    <nav className="flex justify-between px-8 w-full pt-10 fixed">
+                    <nav className="flex justify-between px-8 w-full pt-10 fixed z-50">
                         <Image src={Logo} alt="Logo" width={50} />
                         <HamburgerButton isOpen={isOpen} toggleMenu={toggleMenu} />
                         <MenuMobile isOpen={isOpen} toggleMenu={toggleMenu} />

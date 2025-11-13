@@ -3,7 +3,7 @@ export interface Processo {
   titulo: string;
   descricao: string;
   subCategoria: string;
-  status: 'Ativo' | 'Em Análise' | 'Obsoleto' | '';
+  status: 'Ativo' | 'Em Análise' | 'Obsoleto' | 'Sugestão';
   responsavel: string;
   ultimaAtualizacao: string;
   setor: string;
